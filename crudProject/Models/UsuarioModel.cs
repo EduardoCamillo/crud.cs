@@ -58,6 +58,27 @@ namespace crudProject.Models
             }
             return lista;
         }
+        public void Update (UsuarioWeb usuario)
+        {
+            SqlCommand cmd = new SqlCommand(); 
+            cmd.Connection= connection;
+            cmd.CommandText = @"UPDATE Usuario SET nome = @nome, email=@email WHERE id = @id";
+
+            cmd.Parameters.AddWithValue("@nome", usuario.nome);
+            cmd.Parameters.AddWithValue("@email", usuario.email);
+            cmd.Parameters.AddWithValue("@id", usuario.id);
+
+            cmd.ExecuteNonQuery();
+
+        } 
+        public void Delete(int id)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection= connection;
+            cmd.CommandText = @"DELETE FROM Usuario WHERE id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();  
+        }
     }
 
    

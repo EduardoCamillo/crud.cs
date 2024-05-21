@@ -1,0 +1,22 @@
+﻿@page
+@model IEnumerable <crudProject.Models.UsuarioWeb>
+@{
+    Layout = null;
+}
+<!DOCTYPE <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Index</title>
+    </head>
+    <body>
+        <table>
+            @foreach (var usuario in Model ){
+                <tr>
+                    <td>usuario.id</td>
+                    <td>usuario.nome</td>
+                    <td>usuario.email</td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>
