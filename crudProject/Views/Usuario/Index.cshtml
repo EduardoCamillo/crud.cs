@@ -1,0 +1,32 @@
+﻿@model IEnumerable<crudProject.Models.UsuarioWeb>
+@{
+    Layout = null;
+}
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table id="tabela">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.id</td>
+                    <td>@usuario.nome</td>
+                    <td>@usuario.email</td>
+                </tr>
+            }
+
+        }
+        else
+        {
+            <h2>NENHUM USER ENCONTRADO NESSA BOSTA </h2>
+        }
+
+    </table>
+</body>
+</html>

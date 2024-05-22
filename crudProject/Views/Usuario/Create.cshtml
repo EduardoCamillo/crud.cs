@@ -1,0 +1,22 @@
+﻿@page
+@model crudProject.Models.UsuarioModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <form action="/Usuario/Create" method="post">
+        <input type="text" name="nome" /> <br />
+        <input type="text" name="email" /> <br />
+
+        <button>Salvar</button>
+        </form>
+
+</body>
+</html>

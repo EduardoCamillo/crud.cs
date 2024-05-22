@@ -1,5 +1,10 @@
 ﻿using crudProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
 
 namespace crudProject.Controllers
 {
@@ -11,16 +16,17 @@ namespace crudProject.Controllers
             using(UsuarioModel model =  new UsuarioModel())
             {
                 List<UsuarioWeb> lista = model.Read();
+                ViewData["UsuarioCount"] = lista.Count;
                 return View(lista);
             }   
         }
         [HttpGet]
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Create(FormCollection form)
+        public IActionResult Create(IFormCollection form)
         {
             UsuarioWeb usuario = new UsuarioWeb();
             usuario.nome = form["nome"];
@@ -29,7 +35,7 @@ namespace crudProject.Controllers
             using (UsuarioModel model = new UsuarioModel())
             {
                 model.Create(usuario);
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
             }
         }
 

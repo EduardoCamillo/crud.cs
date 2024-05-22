@@ -13,9 +13,16 @@ namespace crudProject.Models
     {
         private SqlConnection connection;
 
+        public void Connection(String connect)
+        {
+            connection = new SqlConnection(connect);
+            connection.Open();            
+
+        }
+        
         public UsuarioModel()
         {
-            string conn = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDContato;Integrated Security=True";
+            string conn = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BDProject;Integrated Security=True";
         
             connection = new SqlConnection(conn);
             connection.Open();
